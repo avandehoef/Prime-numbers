@@ -19,9 +19,9 @@ namespace ConsoleApp7
 
             Console.WriteLine("geef een getal op voor de eerste poging om een priemgetal te bepalen");
 
-            int getal1 = int.Parse(Console.ReadLine());
-            int y = getal1 -2;
-            int getal2;
+            Int64 getal1 = Int64.Parse(Console.ReadLine());
+            Int64 y = getal1 -2;
+            Int64 getal2;
 
             if (getal1 % 2 == 0)
             {
@@ -31,28 +31,36 @@ namespace ConsoleApp7
             else
             {
                 for (getal2 = getal1; y > 2; y = y - 2)
-
-                    if (getal2 % y == 0)
+                {
+                    if (getal2 % y != 0)
                     {
+                        y = y - 2;
 
-                        Console.WriteLine("Dit is geen priemgetal");
-                        Console.ReadKey();
-                        break;
+                        if (y < 2)
+                        {
+                            Console.WriteLine("Dit is een priemgetal!");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            if (getal2 % y == 0)
+                            {
+                                Console.WriteLine("Dit is geen priemgetal");
+                                Console.ReadKey();
+                            }
+                            else
+                                continue;
+                        }
                     }
                     else
                     {
-                        if (y > 2)
-                        {
-                            continue;
-                        }
-                                        
+                        Console.WriteLine("Dit is geen priemgetal");
+                        Console.ReadKey();
+                        break;                       
                     }
-
-
-                    Console.WriteLine("Dit is een priemgetal!");
-
-
-
+                    
+                    
+                }  
             }
 
             Console.WriteLine();
