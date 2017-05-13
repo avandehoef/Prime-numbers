@@ -17,52 +17,59 @@ namespace ConsoleApp7
 
             Console.WriteLine();
 
-            Console.WriteLine("geef een getal op voor de eerste poging om een priemgetal te bepalen");
+            Console.WriteLine("Geef een getal op voor een check of dit een priemgetal is;");
 
             Int64 getal1 = Int64.Parse(Console.ReadLine());
             Int64 y = getal1 -2;
             Int64 getal2;
 
-            if (getal1 % 2 == 0)
+            if (getal1 == 2)
             {
-                Console.WriteLine("Dit is geen priemgetal");
+                Console.WriteLine(getal1 + " is een priemgetal");
                 Console.ReadKey();
             }
             else
-            {
-                for (getal2 = getal1; y > 2; y = y - 2)
+            { 
+                if (getal1 % 2 == 0)
                 {
-                    if (getal2 % y != 0)
+                Console.WriteLine(getal1 + " is GEEN priemgetal");
+                Console.ReadKey();
+                }
+                else
+                {
+                    for (getal2 = getal1; y > 0; y = y - 2)
                     {
-                        y = y - 2;
-
-                        if (y < 2)
+                        if (getal2 % y != 0 || y == 1)
                         {
-                            Console.WriteLine("Dit is een priemgetal!");
-                            Console.ReadKey();
-                        }
-                        else
-                        {
-                            if (getal2 % y == 0)
+                            if (y < 2)
                             {
-                                Console.WriteLine("Dit is geen priemgetal");
+                                Console.WriteLine();
+                                Console.WriteLine(getal1 + " is WEL een priemgetal!");
                                 Console.ReadKey();
                             }
                             else
-                                continue;
+                            {
+                                if (getal2 % y == 0)
+                                {
+                                    Console.WriteLine(getal1 + " is GEEN priemgetal");
+                                    Console.ReadKey();
+                                }
+                                else
+                                    continue;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine(getal1 + " is GEEN priemgetal");
+                            Console.ReadKey();
+                            break;
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("Dit is geen priemgetal");
-                        Console.ReadKey();
-                        break;                       
-                    }
-                    
-                    
                 }  
             }
 
+            Console.WriteLine();
+            Console.WriteLine("Druk op een toets om deze applicatie af te sluiten...");
             Console.WriteLine();
             Console.ReadKey();
 
